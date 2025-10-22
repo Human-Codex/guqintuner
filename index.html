@@ -30,49 +30,81 @@
         <div class="tuning-summary">
           <div>
             <p class="mode-label">当前定调</p>
-            <h2 id="tuning-status-title" class="mode-name">正调（宫三 仲吕）</h2>
+            <h2 id="tuning-status-title" class="mode-name">正调（仲吕均 / 清角调）</h2>
           </div>
           <button class="primary-button open-sheet" type="button">切换调式</button>
         </div>
+        <div class="harmonic-selector" role="group" aria-label="散音参考">
+          <button
+            class="harmonic-chip active"
+            type="button"
+            data-harmonic="一弦散音"
+            data-string="一弦"
+            data-frequency="65.41"
+          >一弦散音</button>
+          <button
+            class="harmonic-chip"
+            type="button"
+            data-harmonic="二弦散音"
+            data-string="二弦"
+            data-frequency="73.42"
+          >二弦散音</button>
+          <button
+            class="harmonic-chip"
+            type="button"
+            data-harmonic="三弦散音"
+            data-string="三弦"
+            data-frequency="87.31"
+          >三弦散音</button>
+          <button
+            class="harmonic-chip"
+            type="button"
+            data-harmonic="四弦散音"
+            data-string="四弦"
+            data-frequency="98.0"
+          >四弦散音</button>
+          <button
+            class="harmonic-chip"
+            type="button"
+            data-harmonic="五弦散音"
+            data-string="五弦"
+            data-frequency="110.0"
+          >五弦散音</button>
+          <button
+            class="harmonic-chip"
+            type="button"
+            data-harmonic="六弦散音"
+            data-string="六弦"
+            data-frequency="130.81"
+          >六弦散音</button>
+          <button
+            class="harmonic-chip"
+            type="button"
+            data-harmonic="七弦散音"
+            data-string="七弦"
+            data-frequency="146.83"
+          >七弦散音</button>
+        </div>
         <div class="meter-card">
           <div class="meter-display">
-            <span class="note-main">宫</span>
-            <span class="note-sub">七徽泛音</span>
+            <span class="note-main">一弦</span>
+            <span class="note-sub">散音</span>
           </div>
-          <div class="needle-meter" role="img" aria-label="当前音高偏差 +4 音分">
+          <div class="needle-meter" role="img" aria-label="当前音高偏差 0 音分">
             <div class="meter-scale">
               <span>-50</span>
               <span>0</span>
               <span>+50</span>
             </div>
             <div class="meter-bar">
-              <div class="meter-pointer" style="left:62%"></div>
+              <div class="meter-pointer" style="--target:0.5"></div>
             </div>
             <div class="meter-value">
-              <span class="frequency">73.5</span>
+              <span class="frequency">65.4</span>
               <span class="unit">赫兹</span>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="action-grid" aria-label="辅助工具">
-        <button class="card-button" type="button">
-          <div class="card-title">录音</div>
-          <div class="card-desc">捕捉当下音色对比</div>
-        </button>
-        <button class="card-button" type="button">
-          <div class="card-title">节拍器</div>
-          <div class="card-desc">72 拍/分</div>
-        </button>
-        <button class="card-button" type="button">
-          <div class="card-title">泛音校准</div>
-          <div class="card-desc">逐徽提示</div>
-        </button>
-        <button class="card-button" type="button">
-          <div class="card-title">练习记录</div>
-          <div class="card-desc">掌握每日进度</div>
-        </button>
       </section>
 
       <section class="foldable" aria-labelledby="analysis-title">
@@ -82,20 +114,6 @@
         </button>
         <div class="fold-content" hidden>
           <p class="placeholder">实时频谱与波形将在接入麦克风后显示。</p>
-        </div>
-      </section>
-
-      <section class="foldable" aria-labelledby="notes-title">
-        <button class="fold-toggle" type="button">
-          <h3 id="notes-title">演奏提示</h3>
-          <span class="toggle-icon" aria-hidden="true">⌄</span>
-        </button>
-        <div class="fold-content" hidden>
-          <ul class="tip-list">
-            <li>调弦后复检七徽与十徽的泛音，保持音准稳定。</li>
-            <li>按徽手指轻贴，松手要快，音色方能清澈。</li>
-            <li>若改换调式，请先放松弦，再按俗称逐弦微调。</li>
-          </ul>
         </div>
       </section>
     </main>
@@ -115,59 +133,123 @@
       <p class="sheet-subtitle">常见定调与俗称说明</p>
       <ul class="mode-list">
         <li>
-          <button class="mode-item active" type="button" data-mode="正调（宫三 仲吕）">
+          <button
+            class="mode-item active"
+            type="button"
+            data-mode="正调（仲吕均 / 清角调）"
+            data-mode-key="zheng"
+          >
             <span class="mode-name">正调</span>
-            <span class="mode-alias">（宫三 仲吕）</span>
-            <span class="mode-note">俗称：全弦平</span>
+            <span class="mode-alias">（仲吕均 / 清角调）</span>
+            <span class="mode-note">别称宫调、正宫调。常用于《平沙落雁》《流水》《梅花三弄》。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="紧五（宫五 蕤宾）">
-            <span class="mode-name">紧五</span>
-            <span class="mode-alias">（宫五 蕤宾）</span>
-            <span class="mode-note">俗称：紧五弦</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="蕤宾调（无射均 / 金羽调）"
+            data-mode-key="ruibin"
+          >
+            <span class="mode-name">蕤宾调</span>
+            <span class="mode-alias">（无射均 / 金羽调）</span>
+            <span class="mode-note">五弦紧半音，营造苍凉色彩。《潇湘水云》《阳关三叠》《欸乃》常用。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="紧二五（宫二 清角）">
-            <span class="mode-name">紧二五</span>
-            <span class="mode-alias">（宫二 清角）</span>
-            <span class="mode-note">俗称：紧二五弦</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="慢角调（林钟调 / 黄钟均）"
+            data-mode-key="manjiao"
+          >
+            <span class="mode-name">慢角调</span>
+            <span class="mode-alias">（林钟调 / 黄钟均）</span>
+            <span class="mode-note">三弦微降，音色明亮柔和。《凤求凰》《风雷引》代表。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="慢三（宫三 仲吕）">
-            <span class="mode-name">慢三</span>
-            <span class="mode-alias">（宫三 仲吕）</span>
-            <span class="mode-note">俗称：慢三弦</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="清商调（夹钟均 / 小碧玉调）"
+            data-mode-key="qingshang"
+          >
+            <span class="mode-name">清商调</span>
+            <span class="mode-alias">（夹钟均 / 小碧玉调）</span>
+            <span class="mode-note">二五七弦同紧半音，音调清越。《捣衣》《秋鸿》常见。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="紧一（宫一 黄钟）">
-            <span class="mode-name">紧一</span>
-            <span class="mode-alias">（宫一 黄钟）</span>
-            <span class="mode-note">俗称：紧一弦</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="太簇调（夷则均 / 慢宫调）"
+            data-mode-key="taicu"
+          >
+            <span class="mode-name">太簇调</span>
+            <span class="mode-alias">（夷则均 / 慢宫调）</span>
+            <span class="mode-note">一三六弦略松，音色浑厚。《挟仙游》《获麟操》多见。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="紧七（宫七 无射）">
-            <span class="mode-name">紧七</span>
-            <span class="mode-alias">（宫七 无射）</span>
-            <span class="mode-note">俗称：紧七弦</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="慢商调（慢二弦）"
+            data-mode-key="manshang"
+          >
+            <span class="mode-name">慢商调</span>
+            <span class="mode-alias">（慢二弦）</span>
+            <span class="mode-note">二弦降与一弦同音，音区厚重。《广陵散》专用调式。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="慢五（宫五 蕤宾）">
-            <span class="mode-name">慢五</span>
-            <span class="mode-alias">（宫五 蕤宾）</span>
-            <span class="mode-note">俗称：慢五弦</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="无射调（紧五慢一 / 胡笳调）"
+            data-mode-key="wushe"
+          >
+            <span class="mode-name">无射调</span>
+            <span class="mode-alias">（紧五慢一 / 胡笳调）</span>
+            <span class="mode-note">一弦放松、五弦紧半音。《大胡笳》《胡笳十八拍》等边塞题材使用。</span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="大还调（宫四 太簇）">
-            <span class="mode-name">大还调</span>
-            <span class="mode-alias">（宫四 太簇）</span>
-            <span class="mode-note">俗称：慢一紧四</span>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="凄凉调（楚商调）"
+            data-mode-key="qiliang"
+          >
+            <span class="mode-name">凄凉调</span>
+            <span class="mode-alias">（楚商调）</span>
+            <span class="mode-note">二五弦紧半音，音色悲怆。《离骚》《泽畔吟》多用。</span>
+          </button>
+        </li>
+        <li>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="侧商调（D调外调）"
+            data-mode-key="ceshang"
+          >
+            <span class="mode-name">侧商调</span>
+            <span class="mode-alias">（D调外调）</span>
+            <span class="mode-note">三四六弦微降，营造独特偏侧音响。《古怨》为代表。</span>
+          </button>
+        </li>
+        <li>
+          <button
+            class="mode-item"
+            type="button"
+            data-mode="无媒调（缺清角变体）"
+            data-mode-key="wumei"
+          >
+            <span class="mode-name">无媒调</span>
+            <span class="mode-alias">（缺清角变体）</span>
+            <span class="mode-note">三六弦略松，清角缺省。《临邛引》《孤馆遇神》常用。</span>
           </button>
         </li>
       </ul>
@@ -175,32 +257,933 @@
     <section id="repertoires" class="sheet-panel" hidden>
       <h2>按琴曲选择</h2>
       <p class="sheet-subtitle">常见琴曲推荐定调</p>
-      <ul class="mode-list">
+            <ul class="mode-list">
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">一级</span>
+            <span class="heading-note">入门练习</span>
+          </div>
+        </li>
         <li>
-          <button class="mode-item" type="button" data-mode="紧五（宫五 蕤宾）">
-            <span class="mode-name">《潇湘水云》</span>
-            <span class="mode-note">推荐：紧五</span>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《古琴吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="正调（宫三 仲吕）">
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《湘妃怨》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="慢角调（林钟调 / 黄钟均）">
+            <span class="mode-name">《凤求凰》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：慢角调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《慨古吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《陋室铭》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《兰花花》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《小白菜》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级一级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">二级</span>
+            <span class="heading-note">初级巩固</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《双鹤听泉》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级二级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《良宵引》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级二级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《清夜吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级二级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《极乐吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级二级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《秋风词》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级二级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《拉纤歌》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级二级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">三级</span>
+            <span class="heading-note">进阶技巧</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="蕤宾调（无射均 / 金羽调）">
+            <span class="mode-name">《玉楼春晓》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：蕤宾调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《精忠词》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《泣颜回》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="慢角调（林钟调 / 黄钟均）">
+            <span class="mode-name">《风雷引》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：慢角调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《秋江夜泊》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《飞鸣吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="蕤宾调（无射均 / 金羽调）">
             <span class="mode-name">《阳关三叠》</span>
-            <span class="mode-note">推荐：正调</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：蕤宾调</span>
+            </span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="紧二五（宫二 清角）">
-            <span class="mode-name">《渔樵问答》</span>
-            <span class="mode-note">推荐：紧二五</span>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《春晓吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
           </button>
         </li>
         <li>
-          <button class="mode-item" type="button" data-mode="慢三（宫三 仲吕）">
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《满江红》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《映山红》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《小草》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级三级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">四级</span>
+            <span class="heading-note">古谱经典</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《石上流泉》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《神人畅》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
             <span class="mode-name">《酒狂》</span>
-            <span class="mode-note">推荐：慢三</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《韦编三绝》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《孔子读易》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《归去来辞》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《秋夜长》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《渴望》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《信天游》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级四级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">五级</span>
+            <span class="heading-note">传统名篇</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《鸥鹭忘机》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《楚歌》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《关山月》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《高山》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="蕤宾调（无射均 / 金羽调）">
+            <span class="mode-name">《洞庭秋思》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：蕤宾调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《释谈章（普庵咒）》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《文王操》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《碧涧流泉》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《岳阳三醉》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《采茶调》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《浏阳河》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《茉莉花》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级五级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">六级</span>
+            <span class="heading-note">语汇拓展</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《梧叶舞秋风》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《庄周梦蝶》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《长清》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《沧海龙吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《平沙落雁》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="太簇调（夷则均 / 慢宫调）">
+            <span class="mode-name">《获麟操》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：太簇调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《山居吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《黄云秋塞》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《醉渔唱晚》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《双乙反调》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级六级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">七级</span>
+            <span class="heading-note">情志深描</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《忆故人》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="蕤宾调（无射均 / 金羽调）">
+            <span class="mode-name">《长门怨》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：蕤宾调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="无射调（紧五慢一 / 胡笳调）">
+            <span class="mode-name">《龙朔操》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：无射调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《佩兰》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《天风环佩》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《白雪》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="太簇调（夷则均 / 慢宫调）">
+            <span class="mode-name">《列子御风》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：太簇调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《风云际会》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《春江花月夜》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《山水情》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级七级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">八级</span>
+            <span class="heading-note">代表名曲</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《流水》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《渔樵问答》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《梅花三弄》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="蕤宾调（无射均 / 金羽调）">
+            <span class="mode-name">《欸乃》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：蕤宾调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《雉朝飞》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《渔歌》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《汉宫秋月》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="无媒调（缺清角变体）">
+            <span class="mode-name">《孤馆遇神》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：无媒调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《瑶族舞曲》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级八级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">九级</span>
+            <span class="heading-note">情境抒写</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="凄凉调（楚商调）">
+            <span class="mode-name">《离骚》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：凄凉调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="清商调（夹钟均 / 小碧玉调）">
+            <span class="mode-name">《捣衣》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：清商调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《龙翔操》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《乌夜啼》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《秋塞吟》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《水仙操》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《墨子悲丝》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《阳春》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="无射调（紧五慢一 / 胡笳调）">
+            <span class="mode-name">《大胡笳》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：无射调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《楼兰散》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级九级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+
+        <li class="mode-heading">
+          <div class="heading-title">
+            <span class="heading-level">十级</span>
+            <span class="heading-note">拔高曲目</span>
+          </div>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="蕤宾调（无射均 / 金羽调）">
+            <span class="mode-name">《潇湘水云》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：蕤宾调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《樵歌》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="慢商调（慢二弦）">
+            <span class="mode-name">《广陵散》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：慢商调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="清商调（夹钟均 / 小碧玉调）">
+            <span class="mode-name">《秋鸿》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：清商调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="无射调（紧五慢一 / 胡笳调）">
+            <span class="mode-name">《胡笳十八拍》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：无射调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《幽兰》</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《梅园吟》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《三峡船歌》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《江雪》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《风雪筑路》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（仲吕均 / 清角调）">
+            <span class="mode-name">《春风》*</span>
+            <span class="mode-meta">
+              <span class="mode-tag">考级十级</span>
+              <span class="mode-note">推荐：正调</span>
+            </span>
           </button>
         </li>
       </ul>
+
     </section>
     <footer class="sheet-footer">
       <button class="primary-button close-and-apply" type="button">确认</button>
