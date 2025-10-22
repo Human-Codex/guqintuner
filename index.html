@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>古琴调音器</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <header class="brand">
+        <span class="brand-logo" aria-hidden="true">琴</span>
+        <div>
+          <h1>古琴调音器</h1>
+          <p>Guqin Tuner</p>
+        </div>
+      </header>
+      <section class="string-selector" aria-labelledby="string-selector-title">
+        <h2 id="string-selector-title">徽位与琴弦</h2>
+        <ol class="string-list">
+          <li class="string-item active" tabindex="0">
+            <span class="string-name">一弦</span>
+            <span class="string-note">D2</span>
+            <span class="string-desc">太簇 Gong 调</span>
+          </li>
+          <li class="string-item" tabindex="0">
+            <span class="string-name">二弦</span>
+            <span class="string-note">G2</span>
+            <span class="string-desc">仲吕 Shang 调</span>
+          </li>
+          <li class="string-item" tabindex="0">
+            <span class="string-name">三弦</span>
+            <span class="string-note">A2</span>
+            <span class="string-desc">姑洗 Jue 调</span>
+          </li>
+          <li class="string-item" tabindex="0">
+            <span class="string-name">四弦</span>
+            <span class="string-note">C3</span>
+            <span class="string-desc">蕤宾 Zhi 调</span>
+          </li>
+          <li class="string-item" tabindex="0">
+            <span class="string-name">五弦</span>
+            <span class="string-note">D3</span>
+            <span class="string-desc">夷则 Gong 调</span>
+          </li>
+          <li class="string-item" tabindex="0">
+            <span class="string-name">六弦</span>
+            <span class="string-note">F3</span>
+            <span class="string-desc">南吕 Yu 调</span>
+          </li>
+          <li class="string-item" tabindex="0">
+            <span class="string-name">七弦</span>
+            <span class="string-note">A3</span>
+            <span class="string-desc">无射 Qing 调</span>
+          </li>
+        </ol>
+      </section>
+      <section class="tuning-presets" aria-labelledby="tuning-presets-title">
+        <h2 id="tuning-presets-title">调式预设</h2>
+        <div class="preset-tags">
+          <button class="preset active" type="button">标准正调</button>
+          <button class="preset" type="button">仲吕均</button>
+          <button class="preset" type="button">慢角调</button>
+          <button class="preset" type="button">五调转宫</button>
+        </div>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <section class="tuning-display" aria-labelledby="tuning-display-title">
+        <div class="display-header">
+          <h2 id="tuning-display-title">实时调音</h2>
+          <button class="settings-button" type="button" aria-label="设置">
+            <span class="settings-icon" aria-hidden="true">⚙</span>
+          </button>
+        </div>
+        <div class="frequency-panel">
+          <div class="note-indicator" role="presentation">
+            <div class="note-target">
+              <span class="note-letter">D</span>
+              <span class="note-octave">2</span>
+            </div>
+            <div class="note-context">
+              <span class="note-name">太簇</span>
+              <span class="note-mode">(正调 Gong)</span>
+            </div>
+          </div>
+          <div class="frequency-info">
+            <div class="frequency-value">
+              <span class="value">73.42</span>
+              <span class="unit">Hz</span>
+            </div>
+            <div class="detune-meter" role="img" aria-label="音高偏差  +5 分音">
+              <div class="meter-track">
+                <div class="meter-marker" style="left:60%"></div>
+                <div class="meter-zero"></div>
+              </div>
+              <div class="detune-labels">
+                <span>-50</span>
+                <span>0</span>
+                <span>+50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section" aria-labelledby="analysis-title">
+        <h2 id="analysis-title">音色分析</h2>
+        <div class="analysis-card spectrum">
+          <header>
+            <h3>实时频谱</h3>
+            <span class="badge">分析中</span>
+          </header>
+          <div class="placeholder">频谱图占位</div>
+        </div>
+        <div class="analysis-card waveform">
+          <header>
+            <h3>波形包络</h3>
+            <button class="ghost-button" type="button">保存当前</button>
+          </header>
+          <div class="placeholder">波形图占位</div>
+        </div>
+      </section>
+
+      <section class="practice-section" aria-labelledby="practice-title">
+        <div class="practice-header">
+          <h2 id="practice-title">练习助手</h2>
+          <div class="practice-controls">
+            <button type="button">节拍器</button>
+            <button type="button">录音</button>
+            <button type="button">和声</button>
+          </div>
+        </div>
+        <div class="practice-content">
+          <div class="metronome-card">
+            <div class="metronome-display">
+              <span class="tempo">72</span>
+              <span class="tempo-label">BPM</span>
+            </div>
+            <div class="metronome-controls">
+              <button type="button" aria-label="减慢节奏">−</button>
+              <input type="range" min="40" max="120" value="72" aria-label="节拍器速度" />
+              <button type="button" aria-label="加快节奏">+</button>
+            </div>
+          </div>
+          <div class="practice-notes">
+            <h3>演奏建议</h3>
+            <ul>
+              <li>注意勾挑力度保持均衡</li>
+              <li>按徽时手指放松，保持音色纯净</li>
+              <li>调弦后复检七徽泛音</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
