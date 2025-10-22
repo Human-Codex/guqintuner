@@ -7,159 +7,204 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Source+Han+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <header class="brand">
-        <span class="brand-logo" aria-hidden="true">琴</span>
+  <div class="mobile-app">
+    <header class="app-header">
+      <div class="title-group">
+        <span class="brand-icon" aria-hidden="true">琴</span>
         <div>
           <h1>古琴调音器</h1>
-          <p>Guqin Tuner</p>
+          <p>简洁版</p>
         </div>
-      </header>
-      <section class="string-selector" aria-labelledby="string-selector-title">
-        <h2 id="string-selector-title">徽位与琴弦</h2>
-        <ol class="string-list">
-          <li class="string-item active" tabindex="0">
-            <span class="string-name">一弦</span>
-            <span class="string-note">D2</span>
-            <span class="string-desc">太簇 Gong 调</span>
-          </li>
-          <li class="string-item" tabindex="0">
-            <span class="string-name">二弦</span>
-            <span class="string-note">G2</span>
-            <span class="string-desc">仲吕 Shang 调</span>
-          </li>
-          <li class="string-item" tabindex="0">
-            <span class="string-name">三弦</span>
-            <span class="string-note">A2</span>
-            <span class="string-desc">姑洗 Jue 调</span>
-          </li>
-          <li class="string-item" tabindex="0">
-            <span class="string-name">四弦</span>
-            <span class="string-note">C3</span>
-            <span class="string-desc">蕤宾 Zhi 调</span>
-          </li>
-          <li class="string-item" tabindex="0">
-            <span class="string-name">五弦</span>
-            <span class="string-note">D3</span>
-            <span class="string-desc">夷则 Gong 调</span>
-          </li>
-          <li class="string-item" tabindex="0">
-            <span class="string-name">六弦</span>
-            <span class="string-note">F3</span>
-            <span class="string-desc">南吕 Yu 调</span>
-          </li>
-          <li class="string-item" tabindex="0">
-            <span class="string-name">七弦</span>
-            <span class="string-note">A3</span>
-            <span class="string-desc">无射 Qing 调</span>
-          </li>
-        </ol>
-      </section>
-      <section class="tuning-presets" aria-labelledby="tuning-presets-title">
-        <h2 id="tuning-presets-title">调式预设</h2>
-        <div class="preset-tags">
-          <button class="preset active" type="button">标准正调</button>
-          <button class="preset" type="button">仲吕均</button>
-          <button class="preset" type="button">慢角调</button>
-          <button class="preset" type="button">五调转宫</button>
-        </div>
-      </section>
-    </aside>
+      </div>
+      <button class="icon-button" type="button" aria-label="打开更多设置">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </header>
 
-    <main class="workspace">
-      <section class="tuning-display" aria-labelledby="tuning-display-title">
-        <div class="display-header">
-          <h2 id="tuning-display-title">实时调音</h2>
-          <button class="settings-button" type="button" aria-label="设置">
-            <span class="settings-icon" aria-hidden="true">⚙</span>
-          </button>
-        </div>
-        <div class="frequency-panel">
-          <div class="note-indicator" role="presentation">
-            <div class="note-target">
-              <span class="note-letter">D</span>
-              <span class="note-octave">2</span>
-            </div>
-            <div class="note-context">
-              <span class="note-name">太簇</span>
-              <span class="note-mode">(正调 Gong)</span>
-            </div>
+    <main class="content">
+      <section class="tuning-status" aria-labelledby="tuning-status-title">
+        <div class="tuning-summary">
+          <div>
+            <p class="mode-label">当前定调</p>
+            <h2 id="tuning-status-title" class="mode-name">正调（宫三 仲吕）</h2>
           </div>
-          <div class="frequency-info">
-            <div class="frequency-value">
-              <span class="value">73.42</span>
-              <span class="unit">Hz</span>
+          <button class="primary-button open-sheet" type="button">切换调式</button>
+        </div>
+        <div class="meter-card">
+          <div class="meter-display">
+            <span class="note-main">宫</span>
+            <span class="note-sub">七徽泛音</span>
+          </div>
+          <div class="needle-meter" role="img" aria-label="当前音高偏差 +4 音分">
+            <div class="meter-scale">
+              <span>-50</span>
+              <span>0</span>
+              <span>+50</span>
             </div>
-            <div class="detune-meter" role="img" aria-label="音高偏差  +5 分音">
-              <div class="meter-track">
-                <div class="meter-marker" style="left:60%"></div>
-                <div class="meter-zero"></div>
-              </div>
-              <div class="detune-labels">
-                <span>-50</span>
-                <span>0</span>
-                <span>+50</span>
-              </div>
+            <div class="meter-bar">
+              <div class="meter-pointer" style="left:62%"></div>
+            </div>
+            <div class="meter-value">
+              <span class="frequency">73.5</span>
+              <span class="unit">赫兹</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="analysis-section" aria-labelledby="analysis-title">
-        <h2 id="analysis-title">音色分析</h2>
-        <div class="analysis-card spectrum">
-          <header>
-            <h3>实时频谱</h3>
-            <span class="badge">分析中</span>
-          </header>
-          <div class="placeholder">频谱图占位</div>
-        </div>
-        <div class="analysis-card waveform">
-          <header>
-            <h3>波形包络</h3>
-            <button class="ghost-button" type="button">保存当前</button>
-          </header>
-          <div class="placeholder">波形图占位</div>
+      <section class="action-grid" aria-label="辅助工具">
+        <button class="card-button" type="button">
+          <div class="card-title">录音</div>
+          <div class="card-desc">捕捉当下音色对比</div>
+        </button>
+        <button class="card-button" type="button">
+          <div class="card-title">节拍器</div>
+          <div class="card-desc">72 拍/分</div>
+        </button>
+        <button class="card-button" type="button">
+          <div class="card-title">泛音校准</div>
+          <div class="card-desc">逐徽提示</div>
+        </button>
+        <button class="card-button" type="button">
+          <div class="card-title">练习记录</div>
+          <div class="card-desc">掌握每日进度</div>
+        </button>
+      </section>
+
+      <section class="foldable" aria-labelledby="analysis-title">
+        <button class="fold-toggle" type="button">
+          <h3 id="analysis-title">音色分析</h3>
+          <span class="toggle-icon" aria-hidden="true">⌄</span>
+        </button>
+        <div class="fold-content" hidden>
+          <p class="placeholder">实时频谱与波形将在接入麦克风后显示。</p>
         </div>
       </section>
 
-      <section class="practice-section" aria-labelledby="practice-title">
-        <div class="practice-header">
-          <h2 id="practice-title">练习助手</h2>
-          <div class="practice-controls">
-            <button type="button">节拍器</button>
-            <button type="button">录音</button>
-            <button type="button">和声</button>
-          </div>
-        </div>
-        <div class="practice-content">
-          <div class="metronome-card">
-            <div class="metronome-display">
-              <span class="tempo">72</span>
-              <span class="tempo-label">BPM</span>
-            </div>
-            <div class="metronome-controls">
-              <button type="button" aria-label="减慢节奏">−</button>
-              <input type="range" min="40" max="120" value="72" aria-label="节拍器速度" />
-              <button type="button" aria-label="加快节奏">+</button>
-            </div>
-          </div>
-          <div class="practice-notes">
-            <h3>演奏建议</h3>
-            <ul>
-              <li>注意勾挑力度保持均衡</li>
-              <li>按徽时手指放松，保持音色纯净</li>
-              <li>调弦后复检七徽泛音</li>
-            </ul>
-          </div>
+      <section class="foldable" aria-labelledby="notes-title">
+        <button class="fold-toggle" type="button">
+          <h3 id="notes-title">演奏提示</h3>
+          <span class="toggle-icon" aria-hidden="true">⌄</span>
+        </button>
+        <div class="fold-content" hidden>
+          <ul class="tip-list">
+            <li>调弦后复检七徽与十徽的泛音，保持音准稳定。</li>
+            <li>按徽手指轻贴，松手要快，音色方能清澈。</li>
+            <li>若改换调式，请先放松弦，再按俗称逐弦微调。</li>
+          </ul>
         </div>
       </section>
     </main>
   </div>
+
+  <div class="sheet-mask" hidden></div>
+  <aside class="bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+    <header class="sheet-header">
+      <nav class="sheet-tabs" aria-label="调式选择方式">
+        <button class="sheet-tab active" type="button" data-target="modes">按调式</button>
+        <button class="sheet-tab" type="button" data-target="repertoires">按琴曲</button>
+      </nav>
+      <button class="icon-button close-sheet" type="button" aria-label="关闭调式选择">×</button>
+    </header>
+    <section id="modes" class="sheet-panel" aria-labelledby="sheet-title">
+      <h2 id="sheet-title">选择调式</h2>
+      <p class="sheet-subtitle">常见定调与俗称说明</p>
+      <ul class="mode-list">
+        <li>
+          <button class="mode-item active" type="button" data-mode="正调（宫三 仲吕）">
+            <span class="mode-name">正调</span>
+            <span class="mode-alias">（宫三 仲吕）</span>
+            <span class="mode-note">俗称：全弦平</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="紧五（宫五 蕤宾）">
+            <span class="mode-name">紧五</span>
+            <span class="mode-alias">（宫五 蕤宾）</span>
+            <span class="mode-note">俗称：紧五弦</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="紧二五（宫二 清角）">
+            <span class="mode-name">紧二五</span>
+            <span class="mode-alias">（宫二 清角）</span>
+            <span class="mode-note">俗称：紧二五弦</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="慢三（宫三 仲吕）">
+            <span class="mode-name">慢三</span>
+            <span class="mode-alias">（宫三 仲吕）</span>
+            <span class="mode-note">俗称：慢三弦</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="紧一（宫一 黄钟）">
+            <span class="mode-name">紧一</span>
+            <span class="mode-alias">（宫一 黄钟）</span>
+            <span class="mode-note">俗称：紧一弦</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="紧七（宫七 无射）">
+            <span class="mode-name">紧七</span>
+            <span class="mode-alias">（宫七 无射）</span>
+            <span class="mode-note">俗称：紧七弦</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="慢五（宫五 蕤宾）">
+            <span class="mode-name">慢五</span>
+            <span class="mode-alias">（宫五 蕤宾）</span>
+            <span class="mode-note">俗称：慢五弦</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="大还调（宫四 太簇）">
+            <span class="mode-name">大还调</span>
+            <span class="mode-alias">（宫四 太簇）</span>
+            <span class="mode-note">俗称：慢一紧四</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+    <section id="repertoires" class="sheet-panel" hidden>
+      <h2>按琴曲选择</h2>
+      <p class="sheet-subtitle">常见琴曲推荐定调</p>
+      <ul class="mode-list">
+        <li>
+          <button class="mode-item" type="button" data-mode="紧五（宫五 蕤宾）">
+            <span class="mode-name">《潇湘水云》</span>
+            <span class="mode-note">推荐：紧五</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="正调（宫三 仲吕）">
+            <span class="mode-name">《阳关三叠》</span>
+            <span class="mode-note">推荐：正调</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="紧二五（宫二 清角）">
+            <span class="mode-name">《渔樵问答》</span>
+            <span class="mode-note">推荐：紧二五</span>
+          </button>
+        </li>
+        <li>
+          <button class="mode-item" type="button" data-mode="慢三（宫三 仲吕）">
+            <span class="mode-name">《酒狂》</span>
+            <span class="mode-note">推荐：慢三</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+    <footer class="sheet-footer">
+      <button class="primary-button close-and-apply" type="button">确认</button>
+    </footer>
+  </aside>
 </body>
 </html>
