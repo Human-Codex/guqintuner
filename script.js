@@ -6,10 +6,26 @@ const closeApplyButton = document.querySelector('.close-and-apply');
 const sheetTabs = document.querySelectorAll('.sheet-tab');
 const sheetPanels = document.querySelectorAll('.sheet-panel');
 const modeButtons = document.querySelectorAll('.mode-item');
-const modeName = document.querySelector('.mode-name');
+const modeName = document.querySelector('.tuning-summary .mode-name');
 const foldables = document.querySelectorAll('.foldable');
 
 let pendingMode = modeName ? modeName.textContent.trim() : '';
+
+function getButtonMode(button) {
+  return button.dataset.mode || button.textContent.trim();
+}
+
+function syncModeHighlight(currentMode) {
+  if (!currentMode) return;
+  modeButtons.forEach((button) => {
+    const belongsToModePanel = button.closest('.sheet-panel')?.id === 'modes';
+    const buttonMode = getButtonMode(button);
+    button.classList.toggle('active', belongsToModePanel && buttonMode === currentMode);
+    if (!belongsToModePanel) {
+      button.classList.remove('active');
+    }
+  });
+}
 
 function openSheet() {
   if (!bottomSheet || !sheetMask) return;
@@ -32,6 +48,10 @@ function closeSheet(applySelection = false) {
     clearTimeout(fallbackTimeout);
     if (applySelection && modeName) {
       modeName.textContent = pendingMode;
+      syncModeHighlight(pendingMode);
+    } else if (modeName) {
+      pendingMode = modeName.textContent.trim();
+      syncModeHighlight(pendingMode);
     }
   };
   const fallbackTimeout = setTimeout(handleTransitionEnd, 400);
@@ -68,10 +88,11 @@ modeButtons.forEach((button) => {
     const isModePanel = panel?.id === 'modes';
     if (isModePanel) {
       modeButtons.forEach((b) => b.classList.toggle('active', b === button));
-      pendingMode = button.dataset.mode || button.textContent.trim();
+      pendingMode = getButtonMode(button);
     } else if (panel) {
-      pendingMode = button.dataset.mode || button.textContent.trim();
+      pendingMode = getButtonMode(button);
       modeButtons.forEach((b) => b.classList.remove('active'));
+      closeSheet(true);
     }
   });
 });
@@ -91,3 +112,5 @@ foldables.forEach((section) => {
     }
   });
 });
+
+syncModeHighlight(pendingMode);
