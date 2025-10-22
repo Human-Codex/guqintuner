@@ -114,3 +114,19 @@ foldables.forEach((section) => {
 });
 
 syncModeHighlight(pendingMode);
+
+const app = {
+  openSheet,
+  closeSheet,
+  syncModeHighlight,
+  selectMode(mode) {
+    if (!mode || !modeName) return;
+    pendingMode = mode;
+    modeName.textContent = mode;
+    syncModeHighlight(mode);
+  },
+};
+
+if (typeof window !== 'undefined') {
+  window.app = app;
+}
